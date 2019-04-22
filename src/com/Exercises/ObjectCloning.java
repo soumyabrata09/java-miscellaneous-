@@ -38,19 +38,10 @@ public class ObjectCloning implements Cloneable{
 			ObjectCloning obj2 = (ObjectCloning) obj1.clone();
 			System.out.println(obj2.getExpression());
 			
-		} catch (InstantiationException e) {
+		} catch (InstantiationException  | IllegalAccessException  | ClassNotFoundException | CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (CloneNotSupportedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 	}
 
 }

@@ -26,18 +26,22 @@ public class collecDemo {
 		list.add(e);
 		e.setId(3);
 		list.add(e);
-		System.out.println("list size : "+ list.size() + " and list value " + list.toString());
+		System.out.println("list size : "+ list.size() + " and list value " + list.toString()+"\n");
+		
 		Iterator<Employee> itr = list.iterator();
+		System.out.println(" Actual List value after iterating over the collection object<arrayList> : ");
 		while(itr.hasNext())
-			System.out.println(" Actual List value after iterating over the collection object<arrayList> : " + itr.next());
+			System.out.println(itr.next());
 		
 		set.add(e);
 		e.setId(4);
 		set.add(e);
 		itr = set.iterator();
-		System.out.println("set size : "+ list.size() + " and set value " + list.toString());
+		System.out.println("set size : "+ set.size() + " and set value " + set.toString()+"\n");
+		
+		System.out.println(" Actual List value after iterating over the collection object<Set> : ");
 		while(itr.hasNext())
-			System.out.println(" Actual List value after iterating over the collection object<set> : " + itr.next());
+			System.out.println(itr.next());
 	}
 
 }
