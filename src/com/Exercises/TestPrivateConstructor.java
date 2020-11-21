@@ -1,17 +1,13 @@
-
-/**
- * 
- */
 package com.Exercises;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * @author Mohit
+ * @author sam
  *
  */
-public class testPrivateConstructor {
+public class TestPrivateConstructor {
 
 	public static void main(String[] args) {
 		try {

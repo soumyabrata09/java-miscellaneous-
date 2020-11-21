@@ -1,4 +1,4 @@
-/**
+/*
  * 
  * Given 3 inputs n, minimum, & maximum, find the number of values raised to the nth power that lie in the range [minimum, maximum], inclusive.
 	Constraints:
@@ -40,7 +40,8 @@ import java.util.Scanner;
 public class PowerRanger {
 
 	/**
-	 * @param args
+	 * @param num expects an integer value: actual input
+	 * @param power expects an integer value: actual power input value
 	 */
 	
 	static int calculatePowerRecursively(int num, int power) {

@@ -1,9 +1,5 @@
-/**
- * 
- */
 package com.Exercises;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -12,7 +8,7 @@ import java.util.Scanner;
  * @author Sam
  *
  */
-public class firstNonReapetingCharacter {
+public class FirstNonRepeatingCharacter {
 	
 	static void get1stNonRepChar(String str){
 		Map<Character,Integer> hm = new LinkedHashMap<Character,Integer>();
@@ -32,11 +28,11 @@ public class firstNonReapetingCharacter {
 		}
 	}
 
-	public static void main(String ar[]) {
+	public static void main(String[] ar) {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter String = ");
 		String str = scanner.nextLine();
-		firstNonReapetingCharacter.get1stNonRepChar(str);
+		FirstNonRepeatingCharacter.get1stNonRepChar(str);
 	} 
 }

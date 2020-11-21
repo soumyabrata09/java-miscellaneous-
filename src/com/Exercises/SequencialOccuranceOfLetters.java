@@ -1,4 +1,4 @@
-/**
+/*
  * 
  * You are given three inputs: a string, one letter, and a second letter.
 	Check if every instance of the first letter occurs before every instance of the second letter.
@@ -39,7 +39,7 @@ import java.util.Stack;
 public class SequencialOccuranceOfLetters {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	public static void main(String[] args) {
 		

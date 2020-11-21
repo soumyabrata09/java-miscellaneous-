@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.Scanner;
@@ -9,26 +6,22 @@ import java.util.Scanner;
  * @author Sam
  *
  */
-public class pyramidPatarn {
-
-	/**
-	 * @param args
-	 */
+public class PyramidPattern {
 	/*
 	 * Input : n = 4
-Output : 
-1
-3*2
-4*5*6
-10*9*8*7
+	Output :
+	1
+	3*2
+	4*5*6
+	10*9*8*7
 
-Input : n = 5
-Output :
-1
-3*2
-4*5*6
-10*9*8*7
-11*12*13*14*15
+	Input : n = 5
+	Output :
+	1
+	3*2
+	4*5*6
+	10*9*8*7
+	11*12*13*14*15
 	 * */
 	public static void main(String[] args) {
 		Scanner ob = new Scanner(System.in);

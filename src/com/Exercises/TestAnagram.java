@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.Arrays;
@@ -12,10 +9,10 @@ import java.util.Scanner;
  */
 //this code is designed with singleton design pattern 
 // [phenomena : doubled checked thread safe approach to develop singleton classes 
-public class testAnagram {
+public class TestAnagram {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	public static void main(String[] args) {
 		Anagram obj = Anagram.getInstance();
@@ -50,8 +47,8 @@ class Anagram{
 		}
 		return instance;
 	}
-	
-	
+
+
 	@SuppressWarnings("unused")
 	private String str1,str2;
 	public boolean isAnagram(String str1, String str2) {

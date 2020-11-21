@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.misc;
 
 import com.Exceptions.StackOverFlowException;
@@ -22,10 +19,10 @@ public class Utility {
 			Character character = string.charAt(i);
 			stack.push(character.toString());
 		}
-		String revString = "";
+		StringBuilder revString = new StringBuilder();
 		while(!stack.isEmpty()) {
 			
-			revString += stack.pop();
+			revString.append(stack.pop());
 		}
 		System.out.println(revString);
 	}

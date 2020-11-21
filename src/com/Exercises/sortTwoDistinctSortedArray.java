@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.Arrays;
@@ -20,10 +17,11 @@ import java.util.Arrays;
 public class sortTwoDistinctSortedArray {
 
 	/**
-	 * @param args
+	 * @param ar1 expects an array of integers
+	 * @param ar2 expects an array of integers
 	 */
 	//merge method which takes two array as its arguments
-	public static void merge(int ar1[], int ar2[]) {
+	public static void merge(int[] ar1, int[] ar2) {
 		int m = ar1.length, n= ar2.length;
 		//looping through the 2nd_array in reverse order
 		for(int i = n-1 ; i>=0; i--) {

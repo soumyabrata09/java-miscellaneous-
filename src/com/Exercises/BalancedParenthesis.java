@@ -15,9 +15,6 @@ import com.Exceptions.StackOverFlowException;
  * */
 public class BalancedParenthesis {
 
-	/**
-	 * @param args
-	 */
 	public static class stack{
 		private int top = -1;
 		private char[] item = new char[1000];

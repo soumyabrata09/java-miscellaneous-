@@ -1,13 +1,10 @@
-/**
- * 
- */
 package com.Exercises;
 
-/**
+/*
  * @author Sam
  *
  */
-public class Employee extends Object{
+public class Employee {
  private int id;
 	public Employee(int id) {
 		this.setId(id);
@@ -23,8 +20,7 @@ public class Employee extends Object{
 		if(other == null || (other.getClass() != this.getClass()) ) return false;
 		if(!(other instanceof Employee)) return false;
 		final Employee obj = (Employee) other;
-		if( this.id != obj.id) return false;
-		return true;
+		return this.id == obj.id;
 	}
 	
 }

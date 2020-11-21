@@ -1,9 +1,5 @@
-/**
- * 
- */
 package com.Exercises;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import com.misc.Utility;
@@ -12,16 +8,17 @@ import com.org.DataStructure.moi_linkedList;
 import com.org.DataStructure.moi_linkedList.node;
 
 /**
- * @author Mohit
+ * @author Sam
  *
  */
-public class testDS {
+public class TestDS {
 
 	/**
-	 * @param args
+	 * @param list expects a linked list
+	 * @param scanner expects a scanner object for input purposes at runtime
 	 */
 	public static void printHelper(Scanner scanner,moi_linkedList list){
-        System.out.println("Please provide choice of your delimeter - ");
+        System.out.println("Please provide choice of your delimiter - ");
 		
 		System.out.println( "Your List currently contains :- "+list.getList( scanner.nextLine() ));
 	}
@@ -44,7 +41,7 @@ public class testDS {
 		//print list items 
 		try(Scanner scanner = new Scanner(System.in)){
 		
-		testDS.printHelper(scanner, list);
+		TestDS.printHelper(scanner, list);
 		
 		moi_Stack stack = new moi_Stack();
 		for(int i = 65 ; i < 75; i +=2) {
@@ -52,7 +49,7 @@ public class testDS {
 //			String str = Character.toString(ch); // convert character to type String
 //			System.out.println(ch);
 			stack.push( Character.toString((char)i) );
-			testDS.printHelper();
+			TestDS.printHelper();
 		}
 		System.out.println(stack.peek());
 		System.out.println(stack.pop());
@@ -97,7 +94,7 @@ public class testDS {
 			break;
 		case "p":
 		case "P":
-			testDS.printHelper(scanner, list);
+			TestDS.printHelper(scanner, list);
 			break;
 		case "DEL":
 		case "del":

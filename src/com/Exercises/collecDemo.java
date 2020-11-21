@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.ArrayList;
@@ -15,7 +12,7 @@ import java.util.Set;
 public class collecDemo {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	public static void main(String[] args) {
 

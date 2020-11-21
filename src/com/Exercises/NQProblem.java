@@ -3,12 +3,10 @@ package com.Exercises;
 public class NQProblem {
 	/* Java program to solve N Queen Problem using
 	backtracking */
-//	public class NQueenProblem
-//	{
 		final int N = 4;
 
 		/* A utility function to print solution */
-		void printSolution(int board[][])
+		void printSolution(int[][] board)
 		{
 			for (int i = 0; i < N; i++)
 			{
@@ -22,9 +20,9 @@ public class NQProblem {
 		/* A utility function to check if a queen can
 		be placed on board[row][col]. Note that this
 		function is called when "col" queens are already
-		placeed in columns from 0 to col -1. So we need
+		placed in columns from 0 to col -1. So we need
 		to check only left side for attacking queens */
-		boolean isSafe(int board[][], int row, int col)
+		boolean isSafe(int[][] board, int row, int col)
 		{
 			int i, j;
 
@@ -48,7 +46,7 @@ public class NQProblem {
 
 		/* A recursive utility function to solve N
 		Queen problem */
-		boolean solveNQUtil(int board[][], int col)
+		boolean solveNQUtil(int[][] board, int col)
 		{
 			/* base case: If all queens are placed
 			then return true */
@@ -67,7 +65,7 @@ public class NQProblem {
 					board[i][col] = 1;
 
 					/* recur to place rest of the queens */
-					if (solveNQUtil(board, col + 1) == true)
+					if (solveNQUtil(board, col + 1))
 						return true;
 
 					/* If placing queen in board[i][col]
@@ -78,7 +76,7 @@ public class NQProblem {
 			}
 
 			/* If the queen can not be placed in any row in
-			this colum col, then return false */
+			this column col, then return false */
 			return false;
 		}
 
@@ -90,31 +88,28 @@ public class NQProblem {
 		Please note that there may be more than one
 		solutions, this function prints one of the
 		feasible solutions.*/
-		boolean solveNQ()
+		void solveNQ()
 		{
-			int board[][] = {{0, 0, 0, 0},
+			int[][] board = {{0, 0, 0, 0},
 				{0, 0, 0, 0},
 				{0, 0, 0, 0},
 				{0, 0, 0, 0}
 			};
 
-			if (solveNQUtil(board, 0) == false)
+			if (!solveNQUtil(board, 0))
 			{
 				System.out.print("Solution does not exist");
-				return false;
+				return;
 			}
 
 			printSolution(board);
-			return true;
 		}
 
 		// driver program to test above function
-		public static void main(String args[])
+		public static void main(String[] args)
 		{
 			NQProblem Queen = new NQProblem();
 			Queen.solveNQ();
 		}
-//	}
-//	// This code is contributed by Abhishek Shankhadhar
 
 }

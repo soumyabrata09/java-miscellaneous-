@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 import java.util.Scanner;
 /**
@@ -10,7 +7,9 @@ import java.util.Scanner;
 public class Permutation {
 
 	/**
-	 * @param args
+	 * @param str expects a string instance
+	 * @param i expects an integer value
+	 * @param j expects an integer value
 	 * 
 	 */
 	public static String swap(String str , int i , int j) {
@@ -19,13 +18,13 @@ public class Permutation {
 		
 		//swap each letter 
 		tempVar = charArray[i];
-//		System.out.println("before swap charArray[i]-> "+charArray[i]);
-//		System.out.println("before swap-> charArray[j]"+charArray[j]+ "\n");
+		/*System.out.println("before swap charArray[i]-> "+charArray[i]);
+		System.out.println("before swap-> charArray[j]"+charArray[j]+ "\n");*/
 		charArray[i] = charArray[j];
 		charArray[j] = tempVar;
-//		System.out.println("after swap charArray[i]-> "+charArray[i]);
-//		System.out.println("after swap-> charArray[j]"+charArray[j]);
-//		System.out.println("\nretrun value " + String.valueOf(charArray)+"\n");
+		/*System.out.println("after swap charArray[i]-> "+charArray[i]);
+		System.out.println("after swap-> charArray[j]"+charArray[j]);
+		System.out.println("\n return value " + String.valueOf(charArray)+"\n");*/
 		
 		return String.valueOf(charArray);
 	}

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.HashMap;
@@ -32,7 +29,7 @@ public class checkEvenStrings {
 			return "Odd Strings ";
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a choice of your string = ");

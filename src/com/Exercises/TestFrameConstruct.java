@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.HashMap;
@@ -14,10 +11,10 @@ import com.org.swingComponents.tableConstruct;
  * @author Sam
  *
  */
-public class testFrameConstruct {
+public class TestFrameConstruct {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	public static void main(String[] args) {
 		

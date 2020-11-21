@@ -1,9 +1,6 @@
-/**
- * 
- */
 package com.Exercises;
 
-/**
+/*
  * @author Soumyabrata
  *
  */

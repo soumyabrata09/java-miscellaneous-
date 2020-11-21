@@ -1,15 +1,9 @@
-/**
- * 
- */
 package com.Exercises;
 
-/**
+/*
  * @author Sam
  *
  */
-//public class Rubik_Cube {
-//
-//}
 
 import java.awt.*;
 import java.awt.event.*;
@@ -26,7 +20,7 @@ import java.io.*;
 
 public final class Rubik_Cube extends Applet implements Runnable, MouseListener, MouseMotionListener {
   // external configuration
-  private final Hashtable config = new Hashtable();
+  private final Hashtable<String, String> config = new Hashtable<String, String>();
   // background colors
   private Color bgColor;
   private Color bgColor2;
@@ -349,20 +343,18 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       double angle = pi12;
       switch (Character.toLowerCase(param.charAt(i))) {
        case 'd':
-        angle = -angle;
+        case 'f':
+        case 'l':
+          angle = -angle;
        case 'u':
         vRotY(eye, angle);
         vRotY(eyeX, angle);
         break;
-       case 'f':
-        angle = -angle;
-       case 'b':
+        case 'b':
         vRotZ(eye, angle);
         vRotZ(eyeX, angle);
         break;
-       case 'l':
-        angle = -angle;
-       case 'r':
+        case 'r':
         vRotX(eye, angle);
         vRotX(eyeX, angle);
         break;
@@ -435,10 +427,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
     }
     // whether the cube can be edited with mouse
     param = getParameter("edit");
-    if ("0".equals(param))
-      editable = false;
-    else
-      editable = true;
+    editable = !"0".equals(param);
     // displaying the textual representation of the move
     param = getParameter("movetext");
     if ("1".equals(param))
@@ -453,36 +442,48 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       moveText = 0;
     // how texts are displayed
     param = getParameter("fonttype");
-    if (param == null || "1".equals(param))
-      outlined = true;
-    else
-      outlined = false;
+    outlined = param == null || "1".equals(param);
     // metric
     metric = 0;
     param = getParameter("metric");
     if (param != null) {
-      if ("1".equals(param)) // quarter-turn
-        metric = 1;
-      else if ("2".equals(param)) // face-turn
-        metric = 2;
-      else if ("3".equals(param)) // slice-turn
-        metric = 3;
+      switch (param) {
+        case "1":
+// quarter-turn
+          metric = 1;
+          break;
+        case "2":
+// face-turn
+          metric = 2;
+          break;
+        case "3":
+// slice-turn
+          metric = 3;
+          break;
+      }
     }
     // metric
     align = 1;
     param = getParameter("align");
     if (param != null) {
-      if ("0".equals(param)) // top
-        align = 0;
-      else if ("1".equals(param)) // center
-        align = 1;
-      else if ("2".equals(param)) // bottom
-        align = 2;
+      switch (param) {
+        case "0":
+// top
+          align = 0;
+          break;
+        case "1":
+// center
+          align = 1;
+          break;
+        case "2":
+// bottom
+          align = 2;
+          break;
+      }
     }
     // setup initial values
     for (int i = 0; i < 6; i++)
-      for (int j = 0; j < 9; j++)
-        initialCube[i][j] = cube[i][j];
+      System.arraycopy(cube[i], 0, initialCube[i], 0, 9);
     for (int i = 0; i < 3; i++) {
       initialEye[i] = eye[i];
       initialEyeX[i] = eyeX[i];
@@ -496,13 +497,12 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
     if (average < 128) {
       textColor = Color.white;
       hlColor = bgColor.brighter();
-      hlColor = new Color(hlColor.getBlue(), hlColor.getRed(), hlColor.getGreen());
     }
     else {
       textColor = Color.black;
       hlColor = bgColor.darker();
-      hlColor = new Color(hlColor.getBlue(), hlColor.getRed(), hlColor.getGreen());
     }
+    hlColor = new Color(hlColor.getBlue(), hlColor.getRed(), hlColor.getGreen());
     bgColor2 = new Color(red / 2, green / 2, blue / 2);
     curInfoText = -1;
     if (demo)
@@ -512,7 +512,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
   public String getParameter(String name) {
     String parameter = super.getParameter(name);
     if (parameter == null)
-      return (String)config.get(name);
+      return config.get(name);
     return parameter;
   }
 
@@ -543,8 +543,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       }
       else {
         String[] infoText2 = new String[infoText.length + inum];
-        for (int i = 0; i < infoText.length; i++)
-          infoText2[i] = infoText[i];
+        System.arraycopy(infoText, 0, infoText2, 0, infoText.length);
         curInfoText = infoText.length;
         infoText = infoText2;
       }
@@ -580,16 +579,16 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       }
       else if (sequence.charAt(i) == '{') {
         i++;
-        String s = "";
+        StringBuilder s = new StringBuilder();
         while (i < sequence.length()) {
           if (sequence.charAt(i) == '}')
             break;
           if (info)
-            s += sequence.charAt(i);
+            s.append(sequence.charAt(i));
           i++;
         }
         if (info) {
-          infoText[curInfoText] = s;
+          infoText[curInfoText] = s.toString();
           move[length] = 1000 + curInfoText;
           curInfoText++;
           length++;
@@ -646,10 +645,10 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
   private String moveText(int[] move, int start, int end) {
     if (start >= move.length)
       return "";
-    String s = "";
+    StringBuilder s = new StringBuilder();
     for (int i = start; i < end; i++)
-      s += turnText(move, i);
-    return s;
+      s.append(turnText(move, i));
+    return s.toString();
   }
 
   private static final String[][][] turnSymbol = {
@@ -705,8 +704,8 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
 
   private static int realMoveLength(int[] move) {
     int length = 0;
-    for (int i = 0; i < move.length; i++)
-      if (move[i] < 1000)
+    for (int j : move)
+      if (j < 1000)
         length++;
     return length;
   }
@@ -921,8 +920,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
               movePos = 0;
               initInfoText(mv);
               for (int i = 0; i < 6; i++)
-                for (int j = 0; j < 9; j++)
-                  cube[i][j] = initialCube[i][j];
+                System.arraycopy(initialCube[i], 0, cube[i], 0, 9);
             }
           }
           else
@@ -961,8 +959,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       natural = true;
       mirrored = false;
       for (int i = 0; i < 6; i++)
-        for (int j = 0; j < 9; j++)
-          cube[i][j] = initialCube[i][j];
+        System.arraycopy(initialCube[i], 0, cube[i], 0, 9);
       for (int i = 0; i < 3; i++) {
         eye[i] = initialEye[i];
         eyeX[i] = initialEyeX[i];
@@ -1079,7 +1076,8 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
   private void twistLayers(int[][] cube, int layer, int num, int mode) {
     switch (mode) {
      case 3:
-      twistLayer(cube, layer ^ 1, num, false);
+      case 4:
+        twistLayer(cube, layer ^ 1, num, false);
      case 2:
       twistLayer(cube, layer, 4 - num, false);
      case 1:
@@ -1089,9 +1087,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       twistLayer(cube, layer ^ 1, 4 - num, false);
       twistLayer(cube, layer, 4 - num, false);
       break;
-     case 4:
-      twistLayer(cube, layer ^ 1, num, false);
-     default:
+      default:
       twistLayer(cube, layer, 4 - num, false);
     }
   }
@@ -1192,8 +1188,8 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
     {-1,  1, -1,  1, -1, -1}, // L
     { 1, -1,  1, -1,  1,  1}  // R
   };
-  private int[] dragLayers = new int[18]; // which layers belongs to dragCorners
-  private int[] dragModes = new int[18]; // which layer modes dragCorners
+  private final int[] dragLayers = new int[18]; // which layers belongs to dragCorners
+  private final int[] dragModes = new int[18]; // which layer modes dragCorners
   // current drag directions
   private double dragX;
   private double dragY;
@@ -1470,16 +1466,14 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
           if (mirrored)
             fillX[j] = width - fillX[j];
         }
-        graphics.setColor(Color.black);
-        graphics.fillPolygon(fillX, fillY, 4);
       }
       else {
         // draw black face background (do not care about normals and visibility!)
         for (int j = 0; j < 4; j++) // corner co-ordinates
           getCorners(i, j, fillX, fillY, blocks[i][0][factors[j][0]], blocks[i][1][factors[j][1]], mirrored);
-        graphics.setColor(Color.black);
-        graphics.fillPolygon(fillX, fillY, 4);
       }
+      graphics.setColor(Color.black);
+      graphics.fillPolygon(fillX, fillY, 4);
     }
     // draw all visible faces and get dragging regions
     for (int i = 0; i < 6; i++) { // all faces
@@ -1584,7 +1578,6 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
         buttonX += buttonWidth;
       }
       drawButtons = false;
-      return;
     }
   }
 
@@ -1611,7 +1604,8 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
       }
       break;
      case 4: // play
-      drawArrow(g, x - 2, y, 1); // right
+      case 7: // next sequence
+        drawArrow(g, x - 2, y, 1); // right
       break;
      case 5: // step
       drawRect(g, x - 4, y - 3, 3, 7);
@@ -1620,9 +1614,6 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
      case 6: // fast forward
       drawRect(g, x + 1, y - 3, 3, 7);
       drawArrow(g, x - 4, y, 1); // right
-      break;
-     case 7: // next sequence
-      drawArrow(g, x - 2, y, 1); // right
       break;
     }
   }
@@ -1896,7 +1887,7 @@ public final class Rubik_Cube extends Applet implements Runnable, MouseListener,
         description = "Current progress";
       }
     }
-    if (description != buttonDescription) {
+    if (!description.equals(buttonDescription)) {
       buttonDescription = description;
       showStatus(description);
     }

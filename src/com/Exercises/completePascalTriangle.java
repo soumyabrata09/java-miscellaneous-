@@ -1,4 +1,4 @@
-/**
+/*
  * Given an integer n the number of rows in a * triangle, write a program to get the triangle with n rows.
          *
         * *
@@ -44,10 +44,9 @@ import java.util.Scanner;
 public class completePascalTriangle {
 
 	/**
-	 * @param args
-	 * @throws Exception 
+	 * @param args for command line argument
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args)  {
 		
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
@@ -70,7 +69,7 @@ public class completePascalTriangle {
 						System.out.print("  "); // Double Space 
 					}
 				}
-				System.out.println("");
+				System.out.println();
 			}
 		}
 	}

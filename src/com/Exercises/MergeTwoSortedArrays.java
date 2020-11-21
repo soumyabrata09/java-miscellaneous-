@@ -1,11 +1,8 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.Arrays;
 
-/**
+/*
  * @author Sam
  *
  */
@@ -21,11 +18,11 @@ public class MergeTwoSortedArrays {
 		}
 	}
 
-	public static void main(String arg[]) {
+	public static void main(String[] arg) {
 		int[] ar1 = {1, 3, 5, 7};
 		int[] ar2 = {2, 4, 6, 8};
 		int m = ar1.length,n=ar2.length;
-		int ar3[] = new int[m+n];
+		int[] ar3 = new int[m+n];
 		MergeTwoSortedArrays.mergeArrays(ar1,m,ar2,n,ar3);
 		System.out.println(Arrays.toString(ar3));
 	}

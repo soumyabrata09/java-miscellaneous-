@@ -1,4 +1,4 @@
-/**
+/*
  * Given a natural number n (where 1≤n≤9), find the sum of the series having n number of numbers such that the series is n,nn,nnn,…nnn…n times.
  Hence, the required sum is
  n+nn+nnn+⋯+nnn…n
@@ -40,7 +40,7 @@ import java.util.Scanner;
 public class SumOfSeries {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	public static void main(String[] args) {
 		
@@ -54,12 +54,12 @@ public class SumOfSeries {
 		if(value >0 && value <10) {
 			for(int i =1; i<=value; i++) {
 				interimSeries = interimSeries + String.valueOf(value); // converting int > String
-				summation = summation + Integer.valueOf(interimSeries); //add it back converting String > int again
+				summation = summation + Integer.parseInt(interimSeries); //add it back converting String > int again
 			}
 			System.out.println("Output : " + summation);
 		}
 		else {
-			System.out.println("Contraints should be followed as \r\n" + 
+			System.out.println("Constraints should be followed as \r\n" +
 					" 1≤n≤9 ");
 		}
 	}

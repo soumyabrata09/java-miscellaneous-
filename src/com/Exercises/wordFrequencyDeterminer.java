@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.ArrayList;
@@ -8,17 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.TreeMap;
-
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 import com.org.swingComponents.tabbedPaneConstruct;
 import com.org.swingComponents.tableConstruct;
 
@@ -35,7 +27,7 @@ import com.org.swingComponents.tableConstruct;
 public class wordFrequencyDeterminer {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	static JFrame frame ;
 	public static void main(String[] args) {
@@ -78,15 +70,14 @@ public class wordFrequencyDeterminer {
 		 *   print the key and value 
 		 * */
 		Map<Integer,Integer> hashMap = new HashMap<Integer,Integer>();
-		for( int i =0; i < arr.length; i++) 
-		{
-			Integer occurrence = hashMap.get(arr[i]);
-			//if it is the first occurrence of the element 
-			if( hashMap.get(arr[i]) == null )
-				hashMap.put(arr[i], 1);
-			//if element already exists in the hashmap object 
+		for (int j : arr) {
+			Integer occurrence = hashMap.get(j);
+			//if it is the first occurrence of the element
+			if (hashMap.get(j) == null)
+				hashMap.put(j, 1);
+				//if element already exists in the hashmap object
 			else
-				hashMap.put(arr[i],++occurrence );	
+				hashMap.put(j, ++occurrence);
 		}
 		//print the result 
 		for(@SuppressWarnings("rawtypes") Map.Entry mpentry : hashMap.entrySet() )
@@ -134,7 +125,7 @@ public class wordFrequencyDeterminer {
 		 * This method explains the usage of Collection.frequency() method in order to find the occurrence Of the element or letter 
 		 * 
 		 * */
-		List<int[]> arrayList = new ArrayList<int[]>(Arrays.asList(arr));
+		List<int[]> arrayList = new ArrayList<int[]>(Collections.singletonList(arr));
 		Iterator<int[]> itr = arrayList.iterator();
 //		while(itr.hasNext()) {
 //			System.out.println(" Element " + itr.next() +" occurred : " + Collections.frequency(arrayList, itr.next()) + " times.");

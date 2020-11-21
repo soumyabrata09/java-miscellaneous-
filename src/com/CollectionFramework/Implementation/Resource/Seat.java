@@ -26,9 +26,9 @@ public class Seat {
 	public char getRow() {
 		return seatName.charAt(0);
 	}
-//	public void reserve() {
-//		if(isReserved())
-//	}
+/*	public void reserve() {
+		if(isReserved())
+	}*/
 	/**
 	 * @return the isReserved
 	 */

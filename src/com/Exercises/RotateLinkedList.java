@@ -1,10 +1,6 @@
-/**
- * 
- */
 package com.Exercises;
 
 import java.util.Scanner;
-
 import com.org.DataStructure.moi_linkedList;
 
 /**
@@ -18,10 +14,10 @@ import com.org.DataStructure.moi_linkedList;
  * modified to 50->60->10->20->30->40. Assume that k is smaller than the count of nodes in linked list.
  * */
 
-//Creating Linkedlist with Default access specifier 
+//Creating Linked List with Default access specifier 
 class LinkedList{
 	Node head;
-	class Node{
+	static class Node{
 		int data;
 		Node nextNode;
 		Node(int data){
@@ -61,22 +57,22 @@ class LinkedList{
 		rTh_node.nextNode = null;
 	}
 	
-	String printList(String delimeter) {
+	String printList(String delimiter) {
 		Node n = head;
-		String listItem ="";
+		StringBuilder listItem = new StringBuilder();
 		while( n!= null) {
-			listItem += n.data + delimeter;
+			listItem.append(n.data).append(delimiter);
 			n = n.nextNode;
 		}
 		
-		return listItem.substring(0, listItem.length()-delimeter.length());
+		return listItem.substring(0, listItem.length()-delimiter.length());
 	}
 	
 }
-public class rotateLinkedList {
+public class RotateLinkedList {
 
 	/**
-	 * @param args
+	 * @param args for command line argument
 	 */
 	public static void main(String[] args) {
 		
@@ -84,21 +80,19 @@ public class rotateLinkedList {
 		for (int i = 60; i >= 10; i -= 10) {
 			list.add(i);
 		}
-		
-//		moi_linkedList list = new moi_linkedList();
-//		@SuppressWarnings("resource")
+
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-//		System.out.println("Enter Range of list = ");
-//		int n = scanner.nextInt();
-//		//making the list
-//		int standVal = 0;
-////		for(int i =0; i<n ; i++) {
-////			standVal += 10;
-////			list.addToHead(standVal);
-////		}
-//		for (int i = 60; i >= 10; i -= 10) 
-//			list.push(i); 
+		/*System.out.println("Enter Range of list = ");
+		int n = scanner.nextInt();*/
+		//making the list
+		//int standVal = 0;
+		/*for(int i =0; i<n ; i++) {
+			standVal += 10;
+			list.addToHead(standVal);
+		}
+		for (int i = 60; i >= 10; i -= 10)
+			list.push(i);*/
 		System.out.println("::Before Rotation::");
 		System.out.println(list.printList("->"));
 		System.out.println("Enter rotation index = ");

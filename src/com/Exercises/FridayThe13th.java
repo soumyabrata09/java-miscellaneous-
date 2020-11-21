@@ -1,5 +1,5 @@
-/**
- * 
+/*
+ *
  * Given the month and year as numbers, check whether that month contains a 'Friday 13th'.
 	Constraints:
 	1.	January will be given as 1, February as 2, etc ...
@@ -21,7 +21,7 @@
 	Sample Output 3
 	False
 
- * 
+ *
  */
 package com.Exercises;
 
@@ -31,14 +31,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-/**
+/*
  * @author soumyabrata
  *
  */
 public class FridayThe13th {
 
-	/**
-	 * @param args
+	/*
+	 * @param args for command line argument
 	 * @throws ParseException 
 	 */
 	public static void main(String[] args) throws ParseException {
@@ -57,7 +57,7 @@ public class FridayThe13th {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		
-		if(calendar.get(Calendar.DAY_OF_WEEK) == 6) { 
+		if(calendar.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
 			//checking for Friday , 6th day of the Week Alternate approach could be instead of specifying integer value Calendar.FRIDAY can also be used
 			System.out.println("Output : " + Boolean.TRUE);
 		}
