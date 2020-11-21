@@ -4,7 +4,7 @@
 package com.org.DataStructure;
 
 /**
- * @author Mohit
+ * @author Sam
  * @version 1.0
  *
  */
@@ -48,7 +48,7 @@ public class moi_linkedList {
 		node newNode = new node(data);
 		if(Head == null ){
 			Head = newNode;return;}
-		else{ // get a pointer to Head and traver till the last node of the list
+		else{ // get a pointer to Head and traverse till the last node of the list
 			node lastNode = Head;
 			while( lastNode.next != null) 
 				lastNode = lastNode.next;
